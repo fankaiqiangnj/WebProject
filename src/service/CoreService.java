@@ -44,8 +44,14 @@ public class CoreService {
                 //事件类型
                 String eventType = requestMap.get("Event");
                 //订阅
-                if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_SUBSCRIBE))
+                if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_SUBSCRIBE)) {
                     respConternt = "感谢您的关注";
+                }else if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_CLICK)){
+                    String enentKey = requestMap.get("EventKey");
+                    if (enentKey.equals(11)){
+                        respConternt = "天气预报已被点击";
+                    }
+                }
 
             }
             textMessage.setContent(respConternt);

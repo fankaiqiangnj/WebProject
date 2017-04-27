@@ -21,6 +21,9 @@ import java.util.Map;
  * Created by kail on 2017/4/26.
  */
 public class MessageUtil {
+
+    public static String access_token = "";
+
     /**
      * 文本消息
      */
@@ -38,6 +41,13 @@ public class MessageUtil {
      * 事件类型,订阅
      */
     public static  final  String RESP_MESSAGE_TYPE_UNSUBSCRIBE = "subscribe";
+
+    /**
+     * 事件类型,订阅
+     */
+    public static  final  String RESP_MESSAGE_TYPE_CLICK = "CLICK";
+
+
 
     private static XStream xStream = new XStream(new XppDriver(){
         public HierarchicalStreamWriter createWriter(Writer out) {

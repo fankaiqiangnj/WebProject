@@ -1,6 +1,11 @@
 package servlet;
 
+import com.squareup.okhttp.Request;
+import model.Token;
+import myinterface.SuccessCallback;
 import service.CoreService;
+import util.MessageUtil;
+import util.OkHttpUtil;
 import util.SignUtil;
 
 import java.io.IOException;
@@ -19,7 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  * 创建时间：2015-9-29 </br>
  * 发布版本：V1.0 </br>
  */
-public class CoreServlet extends HttpServlet {
+public class CoreServlet extends HttpServlet implements SuccessCallback {
+
 
     private static final long serialVersionUID = 4323197796926899691L;
 
@@ -42,6 +48,10 @@ public class CoreServlet extends HttpServlet {
 
         // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
         if (SignUtil.checkSignature(signature, timestamp, nonce)) {
+           if (MessageUtil.access_token.equals("")) {
+               Request request1 = new Request.Builder().url("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx01dea3921733e48f&secret=0c04a6505e3c71cb41eb34f6694b8af0").build();
+               OkHttpUtil.enqueue(request1, this, 0, Token.class);
+           }
             out.print(echostr);
         }
 
@@ -68,4 +78,21 @@ public class CoreServlet extends HttpServlet {
 
     }
 
+    @Override
+    public void success(int code, Object o) {
+        if (o instanceof Token){
+            Token model = (Token) o;
+            if (!model.getAccess_token().equals("")){
+                MessageUtil.access_token = model.getAccess_token();
+            }
+
+
+        }
+
+    }
+
+    @Override
+    public void error(int code, IOException e) {
+
+    }
 }
