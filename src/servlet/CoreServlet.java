@@ -1,6 +1,9 @@
 package servlet;
 
+import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
+import model.ButtonModel;
+import model.MemunBack;
 import model.Token;
 import myinterface.SuccessCallback;
 import service.CoreService;
@@ -25,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * 发布版本：V1.0 </br>
  */
 public class CoreServlet extends HttpServlet implements SuccessCallback {
-
+Gson gson = new Gson();
 
     private static final long serialVersionUID = 4323197796926899691L;
 
@@ -85,7 +88,15 @@ public class CoreServlet extends HttpServlet implements SuccessCallback {
             if (!model.getAccess_token().equals("")){
                 MessageUtil.access_token = model.getAccess_token();
             }
-
+            ButtonModel.ButtonBean buttonBean = new ButtonModel.ButtonBean();
+            buttonBean.setKey("11");
+            buttonBean.setName("天气");
+            buttonBean.setType("click");
+            try {
+                OkHttpUtil.post(MessageUtil.memu_creat_url,gson.toJson(buttonBean),this,1, MemunBack.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
 

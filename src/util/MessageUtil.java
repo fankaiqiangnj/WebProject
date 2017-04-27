@@ -23,6 +23,8 @@ import java.util.Map;
 public class MessageUtil {
 
     public static String access_token = "";
+    public static String memu_creat_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token="+access_token;
+
 
     /**
      * 文本消息
