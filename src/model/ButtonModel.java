@@ -7,6 +7,7 @@ import java.util.List;
  */
 public class ButtonModel {
 
+
     private List<ButtonBean> button;
 
     public List<ButtonBean> getButton() {
@@ -18,6 +19,20 @@ public class ButtonModel {
     }
 
     public static class ButtonBean {
+
+        public ButtonBean(String type, String name, String key) {
+            this.type = type;
+            this.name = name;
+            this.key = key;
+        }
+
+        public ButtonBean(String type, String name, String key, List<SubButtonBean> sub_button) {
+            this.type = type;
+            this.name = name;
+            this.key = key;
+            this.sub_button = sub_button;
+        }
+
         /**
          * type : click
          * name : 今日歌曲
@@ -74,6 +89,13 @@ public class ButtonModel {
             private String name;
             private String url;
             private String key;
+
+            public SubButtonBean(String type, String name, String url, String key) {
+                this.type = type;
+                this.name = name;
+                this.url = url;
+                this.key = key;
+            }
 
             public String getType() {
                 return type;

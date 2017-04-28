@@ -11,7 +11,7 @@
         <display-name>WSServlet</display-name>
         <servlet-name>WSServlet</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>WSServlet</servlet-name>
@@ -19,12 +19,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>getUserDetail</servlet-name>
-        <servlet-class>servlet.getUserDetail</servlet-class>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>servlet.MyServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>getUserDetail</servlet-name>
-        <url-pattern>/servlet/getUserDetail</url-pattern>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet>

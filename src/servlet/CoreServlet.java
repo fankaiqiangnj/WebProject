@@ -2,6 +2,7 @@ package servlet;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
+import menumanager.MenuManager;
 import model.ButtonModel;
 import model.MemunBack;
 import model.Token;
@@ -13,6 +14,8 @@ import util.SignUtil;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +30,8 @@ import javax.servlet.http.HttpServletResponse;
  * 创建时间：2015-9-29 </br>
  * 发布版本：V1.0 </br>
  */
-public class CoreServlet extends HttpServlet implements SuccessCallback {
-Gson gson = new Gson();
-
+public class CoreServlet extends HttpServlet {
+    Gson gson = new Gson();
     private static final long serialVersionUID = 4323197796926899691L;
 
     /**
@@ -51,10 +53,6 @@ Gson gson = new Gson();
 
         // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
         if (SignUtil.checkSignature(signature, timestamp, nonce)) {
-           if (MessageUtil.access_token.equals("")) {
-               Request request1 = new Request.Builder().url("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx01dea3921733e48f&secret=0c04a6505e3c71cb41eb34f6694b8af0").build();
-               OkHttpUtil.enqueue(request1, this, 0, Token.class);
-           }
             out.print(echostr);
         }
 
@@ -81,29 +79,5 @@ Gson gson = new Gson();
 
     }
 
-    @Override
-    public void success(int code, Object o) {
-        if (o instanceof Token){
-            Token model = (Token) o;
-            if (!model.getAccess_token().equals("")){
-                MessageUtil.access_token = model.getAccess_token();
-            }
-            ButtonModel.ButtonBean buttonBean = new ButtonModel.ButtonBean();
-            buttonBean.setKey("11");
-            buttonBean.setName("天气");
-            buttonBean.setType("click");
-            try {
-                OkHttpUtil.post(MessageUtil.memu_creat_url,gson.toJson(buttonBean),this,1, MemunBack.class);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-        }
-
-    }
-
-    @Override
-    public void error(int code, IOException e) {
-
-    }
 }

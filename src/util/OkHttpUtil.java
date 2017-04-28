@@ -2,6 +2,7 @@ package util;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.*;
+import com.sun.tools.javac.util.Log;
 import myinterface.SuccessCallback;
 
 import java.io.IOException;
@@ -30,8 +31,9 @@ public class OkHttpUtil {
         return mOkHttpClient.newCall(request).execute();
     }
 
+
     /**
-     * 开启异步线程访问网络, 且不在意返回结果
+     * 开启异步线程访问网络
      *
      * @param request
      */
@@ -41,7 +43,7 @@ public class OkHttpUtil {
             @Override
             public void onResponse(Response arg0) throws IOException {
                 Gson gson = new Gson();
-                mCallBackLinster.success(code, gson.fromJson(arg0.body().toString(), clazz));
+                mCallBackLinster.success(code, gson.fromJson(arg0.body().charStream(), clazz));
 
             }
 

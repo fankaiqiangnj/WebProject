@@ -48,7 +48,7 @@ public class CoreService {
                     respConternt = "感谢您的关注";
                 }else if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_CLICK)){
                     String enentKey = requestMap.get("EventKey");
-                    if (enentKey.equals(11)){
+                    if (enentKey.equals("11")){
                         respConternt = "天气预报已被点击";
                     }
                 }
