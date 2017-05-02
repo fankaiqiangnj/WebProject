@@ -23,8 +23,6 @@ import java.util.Map;
 public class MessageUtil {
 
     public static String access_token = "";
-    public static int accessTokenSize =0;
-    public static int menuSize =0;
     public static String memu_creat_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=";
 
 
@@ -49,7 +47,7 @@ public class MessageUtil {
     /**
      * 事件类型,订阅
      */
-    public static  final  String RESP_MESSAGE_TYPE_CLICK = "click";
+    public static  final  String RESP_MESSAGE_TYPE_CLICK = "CLICK";
 
 
 

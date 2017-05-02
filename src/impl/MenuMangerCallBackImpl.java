@@ -16,14 +16,12 @@ import java.util.List;
  * Created by kail on 2017/4/28.
  */
 public class MenuMangerCallBackImpl implements SuccessCallback{
-    Gson gson = new Gson();
     @Override
     public void success(int code, Object o) {
         switch (code){
             case 0:
                 if (o instanceof MemunBack){
-                MessageUtil.menuSize++;
-
+                    System.out.print(((MemunBack) o).getErrcode()+((MemunBack) o).getErrmsg());
                 }
 
                 break;

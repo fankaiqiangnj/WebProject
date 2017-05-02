@@ -31,7 +31,6 @@ import javax.servlet.http.HttpServletResponse;
  * 发布版本：V1.0 </br>
  */
 public class CoreServlet extends HttpServlet {
-    Gson gson = new Gson();
     private static final long serialVersionUID = 4323197796926899691L;
 
     /**
