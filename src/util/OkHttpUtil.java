@@ -2,7 +2,6 @@ package util;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.*;
-import com.sun.tools.javac.util.Log;
 import myinterface.SuccessCallback;
 
 import java.io.IOException;
