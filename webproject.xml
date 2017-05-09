@@ -219,6 +219,10 @@
     <copy file="${basedir}/lib/stax-ex.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/stax-ex.jar"/>
     <copy file="${basedir}/lib/streambuffer.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/streambuffer.jar"/>
     <copy file="${basedir}/lib/woodstox-core-asl.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/woodstox-core-asl.jar"/>
+    <copy file="${basedir}/lib/xmlpull_1_0_5.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/xmlpull_1_0_5.jar"/>
+    <copy file="${basedir}/lib/xstream-1.4.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/xstream-1.4.jar"/>
+    <copy file="${basedir}/lib/dom4j-1.6.1.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/dom4j-1.6.1.jar"/>
+    <copy file="${basedir}/lib/mysql-connector-java-5.1.41-bin.jar" tofile="${artifact.output.webproject:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.41-bin.jar"/>
   </target>
   
   <target name="build.all.artifacts" depends="artifact.webproject:war_exploded" description="Build all artifacts">

@@ -8,9 +8,12 @@ import model.ButtonModel;
 import model.MemunBack;
 import model.Token;
 import util.MessageUtil;
+import util.MySqlUtil;
 import util.OkHttpUtil;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,15 @@ import java.util.List;
  */
 public class MenuManager {
     public static void main(String[] args) {
-        getToken();
+//        getToken();
+        try {
+            Connection connection = MySqlUtil.getConn();
+            if (connection!=null){
+                System.out.println("数据库连接成功");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void getToken() {
@@ -30,7 +41,7 @@ public class MenuManager {
                 Gson gson = new Gson();
                 Response response = OkHttpUtil.execute(request);
                 if (response.isSuccessful()) {
-                    Token TokenModel = gson.fromJson(response.body().charStream(), Token.class);
+                    Token TokenModel = (Token) gson.fromJson(response.body().charStream(), Token.class);
                     MessageUtil.access_token = TokenModel.getAccess_token();
                         creatMenu();
                 }
@@ -43,7 +54,7 @@ public class MenuManager {
 
     static void creatMenu() {
         ButtonModel buttonModel = new ButtonModel();
-        List<ButtonModel.ButtonBean> list = new ArrayList<>();
+        List list = new ArrayList();
         list.add(new ButtonModel.ButtonBean("click", "天气资讯", "11"));
         list.add(new ButtonModel.ButtonBean("click", "位置信息", "12"));
         buttonModel.setButton(list);

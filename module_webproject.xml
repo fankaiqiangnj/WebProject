@@ -20,12 +20,26 @@
     <path refid="library.tomcat_8.5.9.classpath"/>
     <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
     <path refid="library.servlet-api.classpath"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.41-bin.jar"/>
+    <pathelement location="${basedir}/lib/dom4j-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/xstream-1.4.jar"/>
+    <pathelement location="${basedir}/lib/xmlpull_1_0_5.jar"/>
+    <pathelement location="${basedir}/lib/okio-1.12.0.jar"/>
+    <pathelement location="${basedir}/lib/okhttp-2.7.5.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.7.jar"/>
   </path>
   
   <path id="webproject.runtime.production.module.classpath">
     <pathelement location="${webproject.output.dir}"/>
     <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
     <path refid="library.servlet-api.classpath"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.41-bin.jar"/>
+    <pathelement location="${basedir}/lib/dom4j-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/xstream-1.4.jar"/>
+    <pathelement location="${basedir}/lib/xmlpull_1_0_5.jar"/>
+    <pathelement location="${basedir}/lib/okio-1.12.0.jar"/>
+    <pathelement location="${basedir}/lib/okhttp-2.7.5.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.7.jar"/>
   </path>
   
   <path id="webproject.module.classpath">
@@ -34,6 +48,13 @@
     <path refid="library.tomcat_8.5.9.classpath"/>
     <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
     <path refid="library.servlet-api.classpath"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.41-bin.jar"/>
+    <pathelement location="${basedir}/lib/dom4j-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/xstream-1.4.jar"/>
+    <pathelement location="${basedir}/lib/xmlpull_1_0_5.jar"/>
+    <pathelement location="${basedir}/lib/okio-1.12.0.jar"/>
+    <pathelement location="${basedir}/lib/okhttp-2.7.5.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.7.jar"/>
   </path>
   
   <path id="webproject.runtime.module.classpath">
@@ -42,6 +63,13 @@
     <path refid="library.tomcat_8.5.9.classpath"/>
     <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
     <path refid="library.servlet-api.classpath"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.41-bin.jar"/>
+    <pathelement location="${basedir}/lib/dom4j-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/xstream-1.4.jar"/>
+    <pathelement location="${basedir}/lib/xmlpull_1_0_5.jar"/>
+    <pathelement location="${basedir}/lib/okio-1.12.0.jar"/>
+    <pathelement location="${basedir}/lib/okhttp-2.7.5.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.7.jar"/>
   </path>
   
   

@@ -5,6 +5,7 @@ import util.MessageUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,14 +22,14 @@ public class CoreService {
             //默认返回的文本
             String respConternt = "请求处理异常,请稍后尝试";
             //xml 请求解析
-            Map<String, String> requestMap = MessageUtil.parseXml(request);
+            Map requestMap = MessageUtil.parseXml(request);
 
             //发送方账号(open_id)
-            String fromUserName = requestMap.get("FromUserName");
+            String fromUserName = (String) requestMap.get("FromUserName");
             //公众号
-            String toUserName = requestMap.get("ToUserName");
+            String toUserName = (String) requestMap.get("ToUserName");
             //消息类型
-            String msgType = requestMap.get("MsgType");
+            String msgType = (String) requestMap.get("MsgType");
 
 
             //回复文本消息
@@ -42,15 +43,17 @@ public class CoreService {
                 respConternt = "您发送的是文本消息";
             } else if (msgType.equals(MessageUtil.RESP_MESSAGE_TYPE_EVENT)) {
                 //事件类型
-                String eventType = requestMap.get("Event");
+                String eventType = (String) requestMap.get("Event");
                 //订阅
                 if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_SUBSCRIBE)) {
                     respConternt = "感谢您的关注";
                 }else if (eventType.equals(MessageUtil.RESP_MESSAGE_TYPE_CLICK)){
-                    String enentKey = requestMap.get("EventKey");
-                    if (enentKey.equals("11")){
-                        respConternt = "天气预报已被点击";
-                    }
+                    String enentKey = (String) requestMap.get("EventKey");
+                    if (enentKey.equals("11"))
+                        respConternt = "天气已被点击";
+                    if (enentKey.equals("12"))
+                        respConternt = "位置已被点击";
+
                 }
 
             }
