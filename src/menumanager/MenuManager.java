@@ -13,6 +13,7 @@ import util.OkHttpUtil;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +25,14 @@ import java.util.List;
 public class MenuManager {
     public static void main(String[] args) {
 //        getToken();
-        try {
-            Connection connection = MySqlUtil.getConn();
-            if (connection!=null){
-                System.out.println("数据库连接成功");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        String sql = "INSERT INTO locationinfo(open_id,Latitude,Longitude,Precisiones) VALUES(\"sdfsdf\",\"23423442\",\"2345234\",\"234234\") ON DUPLICATE KEY UPDATE Latitude=\"SDF\",Longitude=\"SDF\",Precisiones=\"SDF\";";
+//        try {
+//            MySqlUtil.change(sql);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+
     }
 
     public static void getToken() {
@@ -66,5 +67,6 @@ public class MenuManager {
             e.printStackTrace();
         }
     }
+
 
 }

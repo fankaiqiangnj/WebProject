@@ -45,9 +45,13 @@ public class MessageUtil {
     public static  final  String RESP_MESSAGE_TYPE_UNSUBSCRIBE = "unsubscribe";
 
     /**
-     * 事件类型,订阅
+     * 事件类型,点击
      */
     public static  final  String RESP_MESSAGE_TYPE_CLICK = "CLICK";
+    /**
+     * 事件类型,地理位置
+     */
+    public static  final  String RESP_MESSAGE_TYPE_LOCATION = "LOCATION";
 
 
 
